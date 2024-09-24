@@ -11,7 +11,7 @@ const fetchData = async (url) => {
         const jsonData = await promiseFetch.json();
         const formatedText = JSON.stringify(jsonData, null, 2);
         output.textContent = formatedText;
-        
+
     } catch(err){
         console.log(`Error: ${err}`);
     }
@@ -24,3 +24,6 @@ send_button.addEventListener('click', () => {
 
     fetchData(url);
 });
+
+// Exporting function as a module
+module.exports = fetchData;
