@@ -69,11 +69,6 @@ async function mainFunction(){
     } catch(err){
         throw new Error(err);
     }
-    // Getting the elements
-    const despesasList = document.querySelectorAll('.despesa');
-    const edit_button = document.getElementById('edit');
-    const delete_button = document.getElementById('delete');
-
     // Click event add 'despesa'
     submit_despesa.addEventListener('click', () => {
         try{
