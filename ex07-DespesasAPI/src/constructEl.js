@@ -32,12 +32,6 @@ const createElements = (descricao, valor, id) => {
     button_delete.textContent = 'Delete';
     div_buttons.appendChild(button_delete);
 
-    // Functio to reload page after the put request
-    const reloadAfterChange = async(objectId, new_descricao, new_valor) => {
-        await putRequest(url, objectId, new_descricao, new_valor);
-        location.reload();
-    }
-
     // Button edit event listener
     button_edit.addEventListener('click', (event) => {
         // Getting resources for PUT request
@@ -46,13 +40,27 @@ const createElements = (descricao, valor, id) => {
         const new_valor = Number(window.prompt('Digite um novo valor:'));
         // Try-catch block to validate PUT request
         try{
-            reloadAfterChange(objectId, new_descricao, new_valor);
+            // Anonimous function reload
+            (async function(){
+                await putRequest(url, objectId, new_descricao, new_valor);
+                location.reload();
+            })();
         } catch (err){
             throw new Error(err);
         }
     });
     // Button delete event listener
-    button_delete.addEventListener('click', () => {
-
+    button_delete.addEventListener('click', (event) => {
+        const objectId = event.target.id.split(' ')[1];
+        // Try catch-block to validate DELETE request
+        try{
+            // Anonimous function reload
+            (async function(){
+                await deleteRequest(url, objectId);
+                location.reload();
+            })();
+        } catch(err){
+            throw new Error(err);
+        }
     });
 }
