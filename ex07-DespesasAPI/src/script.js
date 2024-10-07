@@ -2,6 +2,7 @@
 const input_descricao = document.getElementById('input-descricao');
 const input_valor = document.getElementById('input-valor');
 const submit_despesa = document.getElementById('submit-despesa');
+const total_el = document.getElementById('total');
 
 // Configs
 const url = 'https://parseapi.back4app.com/classes/Despesas';
@@ -33,14 +34,18 @@ async function mainFunction(){
 const loadDespesas = async(url) => {
     // Call GET request
     const despesasData = await getRequest(url);
+    let total_valor = 0;
     // loop to create all 'despesas'
     despesasData.forEach((despesa) => {
         const objectId = despesa.objectId;
         const descricao = despesa.descricao;
         const valor = despesa.valor;
+        
+        total_valor += Number(valor);
         // Creating 'despesa' elements
         createElements(descricao, valor, objectId);
     });
+    total_el.textContent = (`Total: R$ ${total_valor}`);
 }
 
 // Requests ==================

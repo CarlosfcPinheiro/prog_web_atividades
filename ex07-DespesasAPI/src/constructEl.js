@@ -12,7 +12,8 @@ const createElements = (descricao, valor, id) => {
     div_despesa.appendChild(h2);
 
     const p = document.createElement('p');
-    p.textContent = valor;
+    const valor_text = (`R$ ${valor}`);
+    p.textContent = valor_text;
     p.id = valor;
     div_despesa.appendChild(p);
 
