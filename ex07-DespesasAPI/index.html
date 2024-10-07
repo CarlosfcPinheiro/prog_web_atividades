@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@500,700,900&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="style.css">
     <script src="./src/script.js" defer></script>
     <script src="./src/constructEl.js" defer></script>
@@ -11,15 +12,19 @@
     <title>Despesas-API</title>
 </head>
 <body>
-    <h1>Despesas API</h1>
-    <p>Gerencia suas despesas com a API de despesas. Visualize, crie, atualize e exclua suas despesas.</p>
-    <div class="add-despesa">
-        <div class="container-input">
-            <input type="text" id="input-descricao" placeholder="roupas">
-            <input type="number" id="input-valor" placeholder="R$ 00.00">
+    <header class="head">
+        <h1>Despesas API</h1>
+        <div class="container-content">
+            <p>Gerencia suas despesas com a API de despesas. Visualize, crie, atualize e exclua suas despesas.</p>
+            <div class="add-despesa">
+                <div class="container-input">
+                    <input type="text" id="input-descricao" placeholder="ex. Brinquedos legais">
+                    <input type="number" id="input-valor" placeholder="00.00">
+                    <input type="submit" value="Adicionar" id="submit-despesa">
+                </div>
+            </div>
         </div>
-        <input type="submit" value="Adicionar" id="submit-despesa">
-    </div>
+    </header>
     <div class="despesas">
         <!-- MODEL 'DESPESA'
         <div class="despesa">
