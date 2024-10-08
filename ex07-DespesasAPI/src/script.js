@@ -45,7 +45,7 @@ const loadDespesas = async(url) => {
         // Creating 'despesa' elements
         createElements(descricao, valor, objectId);
     });
-    total_el.textContent = (`Total: R$ ${total_valor}`);
+    total_el.textContent = (`Total: R$ ${total_valor.toFixed(2)}`);
 }
 
 // Requests ==================
